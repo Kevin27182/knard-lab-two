@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="created 'base' and 'gui' packages">
+    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="added custom Event.compareTo() implementation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Deadline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Deadline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Meeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Meeting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/EventPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventPlanner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +48,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.EventPlanner.executor": "Debug",
     "Application.EventTester.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -69,7 +67,20 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.EventPlanner">
+    <configuration name="EventPlanner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="gui.EventPlanner" />
+      <module name="knard-lab-two" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EventTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="base.EventTester" />
       <module name="knard-lab-two" />
@@ -79,6 +90,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.EventPlanner" />
         <item itemvalue="Application.EventTester" />
       </list>
     </recent_temporary>
@@ -99,7 +111,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1726878510322</updated>
-      <workItem from="1726878511365" duration="4547000" />
+      <workItem from="1726878511365" duration="5046000" />
     </task>
     <task id="LOCAL-00001" summary="Added EventTester.java">
       <option name="closed" value="true" />
@@ -165,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726882026008</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added custom Event.compareTo() implementation">
+      <option name="closed" value="true" />
+      <created>1726883188845</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726883188845</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +200,7 @@
     <MESSAGE value="changed endDatetime to endDateTime" />
     <MESSAGE value="code passes all command line tests in EventTester.java" />
     <MESSAGE value="created 'base' and 'gui' packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="created 'base' and 'gui' packages" />
+    <MESSAGE value="added custom Event.compareTo() implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added custom Event.compareTo() implementation" />
   </component>
 </project>
