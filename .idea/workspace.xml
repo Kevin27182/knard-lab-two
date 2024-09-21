@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="added skeleton for AddEventModal.java">
-      <change afterPath="$PROJECT_DIR$/src/gui/Theme.java" afterDir="false" />
+    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="Added default events">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Deadline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Deadline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/EventTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/EventTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Meeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Meeting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/EventListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventListPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/EventPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/EventPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventPlanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Theme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Theme.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +114,7 @@
       <option name="presentableId" value="Default" />
       <updated>1726878510322</updated>
       <workItem from="1726878511365" duration="5853000" />
-      <workItem from="1726929850134" duration="6872000" />
+      <workItem from="1726929850134" duration="9217000" />
     </task>
     <task id="LOCAL-00001" summary="Added EventTester.java">
       <option name="closed" value="true" />
@@ -217,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726884358705</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added default events">
+      <option name="closed" value="true" />
+      <created>1726936863202</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1726936863202</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,6 +239,7 @@
     <MESSAGE value="added skeleton for EventPlanner.java" />
     <MESSAGE value="added skeleton for EventPanel.java" />
     <MESSAGE value="added skeleton for EventListPanel.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="added skeleton for EventListPanel.java" />
+    <MESSAGE value="Added default events" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added default events" />
   </component>
 </project>
