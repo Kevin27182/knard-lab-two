@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="Implemented Deadline.java">
-      <change afterPath="$PROJECT_DIR$/src/Meeting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Deadline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deadline.java" afterDir="false" />
+    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="changed endDatetime to endDateTime">
+      <change beforePath="$PROJECT_DIR$/src/EventTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventTester.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +59,20 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="EventTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EventTester" />
+      <module name="knard-lab-two" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.EventTester" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -77,7 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1726878510322</updated>
-      <workItem from="1726878511365" duration="2458000" />
+      <workItem from="1726878511365" duration="2621000" />
     </task>
     <task id="LOCAL-00001" summary="Added EventTester.java">
       <option name="closed" value="true" />
@@ -111,7 +123,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726880380793</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implemented Meeting.java">
+      <option name="closed" value="true" />
+      <created>1726881033211</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726881033211</updated>
+    </task>
+    <task id="LOCAL-00006" summary="changed endDatetime to endDateTime">
+      <option name="closed" value="true" />
+      <created>1726881139342</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726881139342</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +150,8 @@
     <MESSAGE value="Implemented Event.java" />
     <MESSAGE value="Implemented Completable Interface" />
     <MESSAGE value="Implemented Deadline.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented Deadline.java" />
+    <MESSAGE value="Implemented Meeting.java" />
+    <MESSAGE value="changed endDatetime to endDateTime" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed endDatetime to endDateTime" />
   </component>
 </project>
