@@ -4,7 +4,7 @@ import base.*;
 import javax.swing.*;
 import java.awt.*;
 
-public class EventPlanner extends javax.swing.JPanel {
+public class EventPlanner extends JPanel {
     private static final int PREFERRED_WIDTH = 600;
     private static final int PREFERRED_HEIGHT = 800;
 
