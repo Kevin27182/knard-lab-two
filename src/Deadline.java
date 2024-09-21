@@ -3,13 +3,13 @@ import java.time.LocalDateTime;
 public class Deadline extends Event implements Completable {
     private boolean complete;
 
-    Deadline(String nameIn, LocalDateTime dateTimeIn) {
-        this.setName(nameIn);
-        this.setDateTime(dateTimeIn);
+    Deadline(String name, LocalDateTime dateTime) {
+        this.setName(name);
+        this.setDateTime(dateTime);
     }
 
     public void complete() {
-        complete = true;
+        this.complete = true;
     }
 
     public boolean isComplete() {
