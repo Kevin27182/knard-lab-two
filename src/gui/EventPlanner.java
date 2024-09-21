@@ -11,6 +11,7 @@ public class EventPlanner extends JPanel {
     private static final int PREFERRED_WIDTH = 600;
     private static final int PREFERRED_HEIGHT = 800;
     private static final LocalDateTime HALLOWEEN_START_DATE = LocalDateTime.of(2024, 10, 31, 0, 0);
+    private static final LocalDateTime LABOR_DAY_START_DATE = LocalDateTime.of(2024, 9, 2, 0, 0);
     private static final LocalDateTime POST_HALLOWEEN_START_DATE = LocalDateTime.of(2024, 11, 1, 8, 0);
     private static final LocalDateTime POST_HALLOWEEN_END_DATE = LocalDateTime.of(2024, 11, 1, 9, 0);
     private static final String POST_HALLOWEEN_STAND_UP_LOCATION = "Meeting Room 204";
@@ -29,6 +30,10 @@ public class EventPlanner extends JPanel {
         // Add default events
         if (USE_DEFAULTS) {
             // Create default Deadline
+            Deadline laborDay = new Deadline("Labor Day", LABOR_DAY_START_DATE);
+            EventPanel laborDayPanel = new EventPanel(laborDay);
+
+            // Create default Deadline
             Deadline halloween = new Deadline("Halloween", HALLOWEEN_START_DATE);
             EventPanel halloweenPanel = new EventPanel(halloween);
 
@@ -37,7 +42,7 @@ public class EventPlanner extends JPanel {
             EventPanel postHalloweenPanel = new EventPanel(postHalloweenStandUp);
 
             // Add default events to frame
-            EventPanel[] events = {halloweenPanel, postHalloweenPanel};
+            EventPanel[] events = {laborDayPanel, halloweenPanel, postHalloweenPanel};
             addDefaultEvents(events);
         }
 

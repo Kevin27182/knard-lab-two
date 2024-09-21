@@ -16,4 +16,8 @@ public class EventListPanel extends JPanel {
     public EventListPanel() {
         this.setBackground(Theme.DARKER_BACKGROUND);
     }
+
+    public void addEvent(Event event) {
+        this.events.add(event);
+    }
 }
