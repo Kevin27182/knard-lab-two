@@ -8,7 +8,7 @@ public class Meeting extends Event implements Completable {
     private String location;
     private boolean complete;
 
-    Meeting(String name, LocalDateTime start, LocalDateTime end, String location) {
+    public Meeting(String name, LocalDateTime start, LocalDateTime end, String location) {
         this.setName(name);
         this.setDateTime(start);
         this.setEndDateTime(end);

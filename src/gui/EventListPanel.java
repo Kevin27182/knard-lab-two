@@ -1,14 +1,19 @@
 package gui;
 
-import base.*;
+import base.Event;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
 public class EventListPanel extends JPanel {
-    ArrayList<Event> events;
-    JPanel controlPanel;
-    JPanel displayPanel;
-    JComboBox sortDropDown;
-    JCheckBox filterDisplay;
-    JButton addEventButton;
+    private ArrayList<Event> events;
+    private JPanel controlPanel;
+    private JPanel displayPanel;
+    private JComboBox sortDropDown;
+    private JCheckBox filterDisplay;
+    private JButton addEventButton;
+
+    public EventListPanel() {
+        this.setBackground(Theme.DARKER_BACKGROUND);
+    }
 }
