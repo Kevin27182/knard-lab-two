@@ -106,4 +106,8 @@ public class EventPanel extends JPanel {
         // If event is imminent, set background to Theme.IMMINENT
         urgencyPanel.setBackground(Theme.IMMINENT);
     }
+
+    public Event getEvent() {
+        return event;
+    }
 }
