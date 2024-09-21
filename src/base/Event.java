@@ -2,7 +2,7 @@ package base;
 
 import java.time.LocalDateTime;
 
-abstract class Event implements Comparable<Event> {
+public abstract class Event implements Comparable<Event> {
     private String name;
     private LocalDateTime dateTime;
 
@@ -23,6 +23,12 @@ abstract class Event implements Comparable<Event> {
     }
 
     public int compareTo(Event o) {
-        return dateTime.compareTo(o.dateTime);
+        if (this.dateTime.isBefore(o.getDateTime()))
+            return -1;
+
+        if (this.dateTime.isAfter(o.getDateTime()))
+            return 1;
+
+        return 0;
     }
 }
