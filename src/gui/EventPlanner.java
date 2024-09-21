@@ -1,7 +1,7 @@
 package gui;
 
 import base.*;
-
+import base.Event;
 import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDateTime;
@@ -25,31 +25,22 @@ public class EventPlanner extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(PREFERRED_WIDTH, PREFERRED_HEIGHT));
 
-        // Add EventListPanel
-        frame.add(eventListPanel);
-
         // Add default events
         if (USE_DEFAULTS) {
-            // Create default Deadline
+            // Create default events
             Deadline laborDay = new Deadline("Labor Day", LABOR_DAY_START_DATE);
-            EventPanel laborDayPanel = new EventPanel(laborDay);
-
-            // Create default Deadline
             Deadline imminentDeadline = new Deadline("Imminent Deadline", IMMINENT_DEADLINE_START_DATE);
-            EventPanel imminentDeadlinePanel = new EventPanel(imminentDeadline);
-
-            // Create default Deadline
             Deadline halloween = new Deadline("Halloween", HALLOWEEN_START_DATE);
-            EventPanel halloweenPanel = new EventPanel(halloween);
-
-            // Create default Meeting
             Meeting postHalloweenStandUp = new Meeting("Post-Halloween Stand Up", POST_HALLOWEEN_START_DATE, POST_HALLOWEEN_END_DATE, POST_HALLOWEEN_STAND_UP_LOCATION);
-            EventPanel postHalloweenPanel = new EventPanel(postHalloweenStandUp);
 
             // Add default events to frame
-            EventPanel[] events = {laborDayPanel, imminentDeadlinePanel, halloweenPanel, postHalloweenPanel};
+            Event[] events = {laborDay, imminentDeadline, halloween, postHalloweenStandUp};
             addDefaultEvents(events);
         }
+
+        // Draw default events and add EventListPanel
+        eventListPanel.drawEvents();
+        frame.add(eventListPanel);
 
         // Pack and display the JFrame
         frame.pack();
@@ -67,9 +58,9 @@ public class EventPlanner extends JPanel {
         timer.start();
     }
 
-    public static void addDefaultEvents(EventPanel[] events) {
-        for (EventPanel event : events) {
-            eventListPanel.add(event);
+    public static void addDefaultEvents(Event[] events) {
+        for (Event event : events) {
+            eventListPanel.addEvent(event);
         }
     }
 }

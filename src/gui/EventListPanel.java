@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class EventListPanel extends JPanel {
-    private ArrayList<Event> events;
+    private ArrayList<Event> events = new ArrayList<Event>();
     private JPanel controlPanel;
     private JPanel displayPanel;
     private JComboBox sortDropDown;
@@ -19,5 +19,12 @@ public class EventListPanel extends JPanel {
 
     public void addEvent(Event event) {
         this.events.add(event);
+    }
+
+    public void drawEvents() {
+        for (Event event : events) {
+            EventPanel eventPanel = new EventPanel(event);
+            this.add(eventPanel);
+        }
     }
 }
