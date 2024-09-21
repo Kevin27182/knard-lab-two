@@ -3,7 +3,7 @@ package base;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class Meeting extends Event implements Completable {
+public class Meeting extends Event implements Completable, DurationEvent, LocationEvent {
     private LocalDateTime endDateTime;
     private String location;
     private boolean complete;

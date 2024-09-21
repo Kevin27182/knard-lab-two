@@ -8,8 +8,6 @@ import java.time.LocalDateTime;
 
 public class EventPlanner extends JPanel {
 
-    private static final int PREFERRED_WIDTH = 600;
-    private static final int PREFERRED_HEIGHT = 800;
     private static final LocalDateTime LABOR_DAY_START_DATE = LocalDateTime.of(2024, 9, 2, 0, 0);
     private static final LocalDateTime IMMINENT_DEADLINE_START_DATE = LocalDateTime.now().plusSeconds(10);
     private static final LocalDateTime HALLOWEEN_START_DATE = LocalDateTime.of(2024, 10, 31, 0, 0);
@@ -23,7 +21,7 @@ public class EventPlanner extends JPanel {
     public static void main(String[] args) {
         // Configure JFrame object
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(PREFERRED_WIDTH, PREFERRED_HEIGHT));
+        frame.setPreferredSize(new Dimension(Theme.PREFERRED_WIDTH, Theme.PREFERRED_HEIGHT));
 
         // Add default events
         if (USE_DEFAULTS) {
@@ -45,17 +43,6 @@ public class EventPlanner extends JPanel {
         // Pack and display the JFrame
         frame.pack();
         frame.setVisible(true);
-
-        Timer timer = new Timer(1000, e -> {
-            for (Component component : eventListPanel.getComponents()) {
-                if (component instanceof EventPanel eventPanel && eventPanel.getEvent() instanceof Completable completableEvent && !completableEvent.isComplete()) {
-                    eventPanel.updateUrgency();
-                    eventPanel.repaint();
-                    eventPanel.revalidate();
-                }
-            }
-        });
-        timer.start();
     }
 
     public static void addDefaultEvents(Event[] events) {

@@ -3,6 +3,8 @@ package gui;
 import java.awt.*;
 
 public class Theme {
+    public static final int PREFERRED_WIDTH = 1000;
+    public static final int PREFERRED_HEIGHT = 1000;
     public static final Color DARKER_BACKGROUND = new Color(0x1E1E1E);
     public static final Color DARK_BACKGROUND = new Color(0x323232);
     public static final Color MID_BACKGROUND = new Color(0x464646);
@@ -12,4 +14,5 @@ public class Theme {
     public static final Color OVERDUE = new Color(0x966464);
     public static final Color IMMINENT = new Color(0x969664);
     public static final Color DISTANT = new Color(0x649664);
+    public static final Color TRANSPARENT = new Color(0x0000000, true);
 }

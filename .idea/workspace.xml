@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="Added Timer to update event urgency">
+      <change afterPath="$PROJECT_DIR$/src/base/DurationEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/base/LocationEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/base/Meeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Meeting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/EventListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventListPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/EventPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/EventPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventPlanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Theme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Theme.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,10 +22,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="package-info" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>

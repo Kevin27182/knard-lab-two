@@ -1,7 +1,9 @@
 package gui;
 
 import base.Completable;
+import base.DurationEvent;
 import base.Event;
+import base.LocationEvent;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -15,6 +17,8 @@ public class EventPanel extends JPanel {
     private Event event;
     private JLabel eventLabel = new JLabel();
     private JLabel dateLabel = new JLabel();
+    private JLabel durationLabel = new JLabel();
+    private JLabel locationLabel = new JLabel();
     private JButton completeButton = new JButton("Complete");
     private JPanel urgencyPanel = new JPanel();
 
@@ -22,6 +26,10 @@ public class EventPanel extends JPanel {
     private static final int URGENCY_HEIGHT = 30;
     private static final int DATE_TIME_WIDTH = 125;
     private static final int DATE_TIME_HEIGHT = 25;
+    private static final int DURATION_WIDTH = 125;
+    private static final int DURATION_HEIGHT = 25;
+    private static final int LOCATION_WIDTH = 125;
+    private static final int LOCATION_HEIGHT = 25;
     private static final int LABEL_WIDTH = 250;
     private static final int LABEL_HEIGHT = 25;
     private static final int HORIZONTAL_PADDING = 10;
@@ -45,6 +53,28 @@ public class EventPanel extends JPanel {
         dateLabel.setPreferredSize(new Dimension(DATE_TIME_WIDTH, DATE_TIME_HEIGHT));
         dateLabel.setForeground(Theme.TEXT_COLOR);
         this.add(dateLabel);
+
+        // Configure and add Duration Label
+        durationLabel.setPreferredSize(new Dimension(DURATION_WIDTH, DURATION_HEIGHT));
+        durationLabel.setForeground(Theme.TEXT_COLOR);
+        if (this.event instanceof DurationEvent durationEvent && this.event instanceof Event baseEvent) {
+            int minutesBetween = (int) MINUTES.between(baseEvent.getDateTime(), durationEvent.getEndDateTime());
+            int hoursBetween = (int) HOURS.between(baseEvent.getDateTime(), durationEvent.getEndDateTime());
+            if (minutesBetween < 60)
+                durationLabel.setText(minutesBetween + " minutes");
+            else if (hoursBetween == 1)
+                durationLabel.setText(hoursBetween + " hour");
+            else
+                durationLabel.setText(hoursBetween + " hours");
+        }
+        this.add(durationLabel);
+
+        // Configure and add Location Label
+        locationLabel.setPreferredSize(new Dimension(LOCATION_WIDTH, LOCATION_HEIGHT));
+        locationLabel.setForeground(Theme.TEXT_COLOR);
+        if (this.event instanceof LocationEvent locationEvent)
+            locationLabel.setText(locationEvent.getLocation());
+        this.add(locationLabel);
 
         // Configure and add Event Label
         eventLabel.setText(this.event.getName());
@@ -77,6 +107,8 @@ public class EventPanel extends JPanel {
                 urgencyPanel.setBackground(Theme.INACTIVE);
                 dateLabel.setForeground(Theme.INACTIVE);
                 eventLabel.setForeground(Theme.INACTIVE);
+                durationLabel.setForeground(Theme.INACTIVE);
+                locationLabel.setForeground(Theme.INACTIVE);
                 this.repaint();
                 this.revalidate();
             }
