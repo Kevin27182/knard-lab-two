@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="changed endDatetime to endDateTime">
-      <change beforePath="$PROJECT_DIR$/src/EventTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventTester.java" afterDir="false" />
+    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="code passes all command line tests in EventTester.java">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/src.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/EventPlanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/knard-lab-two.iml" beforeDir="false" afterPath="$PROJECT_DIR$/knard-lab-two.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Completable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Completable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Deadline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Deadline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EventTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/EventTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Meeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Meeting.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +25,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="package-info" />
       </list>
     </option>
   </component>
@@ -46,22 +55,27 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.EventTester.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/super/IdeaProjects/knard-lab-two/src/base",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/super/IdeaProjects/knard-lab-two/src/Main.java",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
     <configuration name="EventTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="EventTester" />
+      <option name="MAIN_CLASS_NAME" value="base.EventTester" />
       <module name="knard-lab-two" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -89,7 +103,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1726878510322</updated>
-      <workItem from="1726878511365" duration="2621000" />
+      <workItem from="1726878511365" duration="3417000" />
     </task>
     <task id="LOCAL-00001" summary="Added EventTester.java">
       <option name="closed" value="true" />
@@ -139,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726881139342</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="code passes all command line tests in EventTester.java">
+      <option name="closed" value="true" />
+      <created>1726881234533</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1726881234533</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +174,7 @@
     <MESSAGE value="Implemented Deadline.java" />
     <MESSAGE value="Implemented Meeting.java" />
     <MESSAGE value="changed endDatetime to endDateTime" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed endDatetime to endDateTime" />
+    <MESSAGE value="code passes all command line tests in EventTester.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="code passes all command line tests in EventTester.java" />
   </component>
 </project>

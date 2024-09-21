@@ -1,3 +1,5 @@
+package base;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -6,11 +8,11 @@ import java.util.stream.Stream;
 public class EventTester {
 
     static LocalDateTime deadline = LocalDateTime.of(2024, 12, 7, 17, 0);
-    static String lastDeadlineName = "Last Deadline";
-    static String lastDeadlineNameAlt = "Final Deadline";
+    static String lastDeadlineName = "Last base.Deadline";
+    static String lastDeadlineNameAlt = "Final base.Deadline";
     static Deadline lastDeadline = new Deadline(lastDeadlineName, deadline );
-    static Deadline midDeadline = new Deadline("Mid Deadline", deadline.minusDays(10) );
-    static Deadline firstDeadline = new Deadline("First Deadline", deadline.minusDays(20) );
+    static Deadline midDeadline = new Deadline("Mid base.Deadline", deadline.minusDays(10) );
+    static Deadline firstDeadline = new Deadline("First base.Deadline", deadline.minusDays(20) );
     static final int INCREMENT = 1;
 
     static LocalDateTime start = LocalDateTime.of(2024, 10, 7, 15, 0);
@@ -18,9 +20,9 @@ public class EventTester {
     static String location = "MCS 321";
     static String locationAlt =  "MCS 339";
 
-    static Meeting firstMeeting = new Meeting("First Meeting", start, end, location);
-    static Meeting lastMeeting = new Meeting("Last Meeting", start.plusDays(4), end.plusDays(4), location);
-    static Meeting midMeeting = new Meeting("Middle Meeting", start.plusDays(2), end.plusDays(2), location);
+    static Meeting firstMeeting = new Meeting("First base.Meeting", start, end, location);
+    static Meeting lastMeeting = new Meeting("Last base.Meeting", start.plusDays(4), end.plusDays(4), location);
+    static Meeting midMeeting = new Meeting("Middle base.Meeting", start.plusDays(2), end.plusDays(2), location);
 
     static Event[] events = new Event[] {
             midDeadline,
@@ -48,7 +50,7 @@ public class EventTester {
         System.out.println("Testing Setters..." + (testSetters()? "passed" : "failed"));
         System.out.println("Testing implements Comparable..." + (testComparingEvents()? "passed" : "failed"));
         System.out.println("Testing get meeting duration..." + (testMeetingDuration()? "passed" : "failed"));
-        System.out.println("Testing implements Completable..." + (testCompletable()? "passed" : "failed"));
+        System.out.println("Testing implements base.Completable..." + (testCompletable()? "passed" : "failed"));
     }
 
     public static boolean testGetters() {
