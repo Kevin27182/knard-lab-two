@@ -2,23 +2,23 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class Meeting extends Event implements Completable {
-    private LocalDateTime endDatetime;
+    private LocalDateTime endDateTime;
     private String location;
     private boolean complete;
 
     Meeting(String name, LocalDateTime startDateTime, LocalDateTime endDateTime, String location) {
         this.setName(name);
         this.setDateTime(startDateTime);
-        this.setEndDatetime(endDateTime);
+        this.setEndDateTime(endDateTime);
         this.setLocation(location);
     }
 
-    public LocalDateTime getEndDatetime() {
-        return endDatetime;
+    public LocalDateTime getEndDateTime() {
+        return endDateTime;
     }
 
-    public void setEndDatetime(LocalDateTime endDatetime) {
-        this.endDatetime = endDatetime;
+    public void setEndDateTime(LocalDateTime endDateTime) {
+        this.endDateTime = endDateTime;
     }
 
     public String getLocation() {
@@ -38,6 +38,6 @@ public class Meeting extends Event implements Completable {
     }
 
     public Duration getDuration() {
-        return Duration.between(this.getDateTime(), this.getEndDatetime());
+        return Duration.between(this.getDateTime(), this.getEndDateTime());
     }
 }
