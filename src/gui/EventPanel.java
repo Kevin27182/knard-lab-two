@@ -1,5 +1,6 @@
 package gui;
 
+import base.Completable;
 import base.Event;
 import javax.swing.*;
 import java.awt.*;
@@ -29,28 +30,36 @@ public class EventPanel extends JPanel {
 
     EventPanel(Event event) {
         this.event = event;
+
+        // Configure EventPanel
         this.setLayout(new FlowLayout(FlowLayout.CENTER, HORIZONTAL_PADDING, VERTICAL_PADDING));
         this.setBackground(Theme.DARK_BACKGROUND);
 
+        // Configure and add Urgency Highlight
         urgencyPanel.setPreferredSize(new Dimension(URGENCY_WIDTH, URGENCY_HEIGHT));
+        updateUrgency();
         this.add(urgencyPanel);
 
+        // Configure and add Date Label
         dateLabel.setText(event.getDateTime().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)));
         dateLabel.setPreferredSize(new Dimension(DATE_TIME_WIDTH, DATE_TIME_HEIGHT));
         dateLabel.setForeground(Theme.TEXT_COLOR);
         this.add(dateLabel);
 
-        eventLabel.setText(event.getName());
+        // Configure and add Event Label
+        eventLabel.setText(this.event.getName());
         eventLabel.setPreferredSize(new Dimension(LABEL_WIDTH, LABEL_HEIGHT));
         eventLabel.setForeground(Theme.TEXT_COLOR);
         this.add(eventLabel);
 
+        // Configure Complete Button
         completeButton.setAlignmentX(RIGHT_ALIGNMENT);
         completeButton.setBackground(Theme.MID_BACKGROUND);
         completeButton.setForeground(Theme.TEXT_COLOR);
         completeButton.setBorderPainted(false);
         completeButton.setFocusPainted(false);
 
+        // Add listener to highlight complete button on mouse hover
         completeButton.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {
                 completeButton.setBackground(Theme.MID_BACKGROUND_HIGHLIGHT);
@@ -60,13 +69,21 @@ public class EventPanel extends JPanel {
                 completeButton.setBackground(Theme.MID_BACKGROUND);
             }
         });
+
+        // Add listener to complete event on button click
         completeButton.addActionListener(e -> {
-            System.out.println(event.getName());
+            if (this.event instanceof Completable completeableEvent && !completeableEvent.isComplete()) {
+                completeableEvent.complete();
+                urgencyPanel.setBackground(Theme.INACTIVE);
+                dateLabel.setForeground(Theme.INACTIVE);
+                eventLabel.setForeground(Theme.INACTIVE);
+                this.repaint();
+                this.revalidate();
+            }
         });
 
+        // Add Complete Button
         this.add(completeButton);
-
-        updateUrgency();
     }
 
     public void updateUrgency() {

@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="Overhauled UI elements">
+    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="Added another default event">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/EventListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/EventPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventPlanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/EventPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Theme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Theme.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.EventPlanner.executor": "Run",
+    "Application.EventPlanner.executor": "Debug",
     "Application.EventTester.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -114,7 +114,7 @@
       <option name="presentableId" value="Default" />
       <updated>1726878510322</updated>
       <workItem from="1726878511365" duration="5853000" />
-      <workItem from="1726929850134" duration="9740000" />
+      <workItem from="1726929850134" duration="12150000" />
     </task>
     <task id="LOCAL-00001" summary="Added EventTester.java">
       <option name="closed" value="true" />
@@ -228,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726939386548</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added another default event">
+      <option name="closed" value="true" />
+      <created>1726939823925</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1726939823925</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +257,7 @@
     <MESSAGE value="added skeleton for EventListPanel.java" />
     <MESSAGE value="Added default events" />
     <MESSAGE value="Overhauled UI elements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Overhauled UI elements" />
+    <MESSAGE value="Added another default event" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added another default event" />
   </component>
 </project>
