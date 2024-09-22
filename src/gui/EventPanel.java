@@ -1,9 +1,7 @@
 package gui;
 
-import base.Completable;
-import base.DurationEvent;
+import base.*;
 import base.Event;
-import base.LocationEvent;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -38,12 +36,15 @@ public class EventPanel extends JPanel {
     private static final int DISTANT_HOURS = 4;
 
     EventPanel(Event event, Runnable updateEventList) {
+
         this.event = event;
 
+        // Detect if event is complete
         boolean complete = false;
         if (this.event instanceof Completable completableEvent && completableEvent.isComplete())
             complete = true;
 
+        // If event is complete, change all text color to Theme.INACTIVE
         if (complete)
             textColor = Theme.INACTIVE;
 
@@ -95,9 +96,8 @@ public class EventPanel extends JPanel {
         this.add(eventLabel);
 
         // Configure Complete Button
-        completeButton.setAlignmentX(RIGHT_ALIGNMENT);
         completeButton.setBackground(Theme.MID_BACKGROUND);
-        completeButton.setForeground(Theme.TEXT_COLOR);
+        completeButton.setForeground(textColor);
         completeButton.setBorderPainted(false);
         completeButton.setFocusPainted(false);
 
@@ -116,19 +116,15 @@ public class EventPanel extends JPanel {
         completeButton.addActionListener(e -> {
             if (this.event instanceof Completable completeableEvent && !completeableEvent.isComplete()) {
                 completeableEvent.complete();
-                this.textColor = Theme.INACTIVE;
-                urgencyPanel.setBackground(textColor);
-                dateLabel.setForeground(textColor);
-                eventLabel.setForeground(textColor);
-                durationLabel.setForeground(textColor);
-                locationLabel.setForeground(textColor);
                 updateEventList.run();
-                this.repaint();
-                this.revalidate();
             }
         });
 
         // Add Complete Button
+        if (complete) {
+            completeButton.setOpaque(false);
+            completeButton.setEnabled(false);
+        }
         this.add(completeButton);
     }
 
