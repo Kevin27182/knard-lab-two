@@ -1,13 +1,10 @@
 package gui;
 
-import base.Completable;
 import base.Event;
+import base.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -26,7 +23,10 @@ public class EventListPanel extends JPanel {
         this.setLayout(new BorderLayout());
 
         // Configure and add calendar Control Panel
-        controlPanel.add(sortDropDown);
+        controlPanel.setBackground(Theme.DARK_BACKGROUND);
+        this.add(controlPanel, BorderLayout.NORTH);
+
+        // Configure and add filter check boxes to Control Panel
         for (String filter : FILTERS) {
             JCheckBox checkBox = new JCheckBox(filter);
             checkBox.setForeground(Theme.TEXT_COLOR);
@@ -39,15 +39,16 @@ public class EventListPanel extends JPanel {
                             box.setSelected(false);
                         }
                     }
+                    drawEvents();
                 }
             });
             filterBoxes.add(checkBox);
             controlPanel.add(checkBox);
         }
-        controlPanel.setBackground(Theme.DARK_BACKGROUND);
-        this.add(controlPanel, BorderLayout.NORTH);
+
 
         // Configure and add sort event dropdown to Control Panel
+        controlPanel.add(sortDropDown);
         sortDropDown.setBackground(Theme.MID_BACKGROUND);
         sortDropDown.setForeground(Theme.TEXT_COLOR);
         sortDropDown.addActionListener(e -> {
@@ -101,11 +102,64 @@ public class EventListPanel extends JPanel {
     }
 
     public void drawEvents() {
-        for (Event event : events) {
-            EventPanel eventPanel = new EventPanel(event);
+
+        // Stores the active filter checkbox
+        String activeFilter = null;
+
+        // Get the active filter
+        for (JCheckBox filterBox : filterBoxes) {
+            if (filterBox.isSelected()) {
+                activeFilter = filterBox.getText();
+            }
+        }
+
+        // Get filtered events
+        ArrayList<Event> filteredEvents = null;
+        if (activeFilter != null)
+            filteredEvents = filterEvents(activeFilter);
+        else
+            filteredEvents = events;
+
+        displayPanel.removeAll();
+        for (Event event : filteredEvents) {
+            EventPanel eventPanel = new EventPanel(event, () -> {
+                drawEvents();
+            });
             displayPanel.add(eventPanel);
         }
         repaint();
         revalidate();
+    }
+
+    private ArrayList<Event> filterEvents(String filter) {
+        ArrayList<Event> filteredList = new ArrayList<>(events);
+        switch (filter) {
+            case "Not Completed":
+                filteredList.removeIf(e -> {
+                    if (e instanceof Completable completableEvent)
+                        return completableEvent.isComplete();
+                    return false;
+                });
+                break;
+            case "Completed":
+                filteredList.removeIf(e -> {
+                    if (e instanceof Completable completableEvent)
+                        return !completableEvent.isComplete();
+                    return false;
+                });
+                break;
+            case "Deadlines":
+                filteredList.removeIf(e -> {
+                    return !(e instanceof Deadline);
+                });
+                break;
+            case "Meetings":
+                filteredList.removeIf(e -> {
+                    return !(e instanceof Meeting);
+                });
+                break;
+        }
+
+        return filteredList;
     }
 }

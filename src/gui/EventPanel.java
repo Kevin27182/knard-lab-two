@@ -37,7 +37,7 @@ public class EventPanel extends JPanel {
     private static final int VERTICAL_PADDING = 10;
     private static final int DISTANT_HOURS = 4;
 
-    EventPanel(Event event) {
+    EventPanel(Event event, Runnable updateEventList) {
         this.event = event;
 
         boolean complete = false;
@@ -120,6 +120,7 @@ public class EventPanel extends JPanel {
                 eventLabel.setForeground(textColor);
                 durationLabel.setForeground(textColor);
                 locationLabel.setForeground(textColor);
+                updateEventList.run();
                 this.repaint();
                 this.revalidate();
             }
@@ -152,5 +153,9 @@ public class EventPanel extends JPanel {
 
     public Event getEvent() {
         return event;
+    }
+
+    public JButton getCompleteButton() {
+        return completeButton;
     }
 }
