@@ -19,6 +19,7 @@ public class AddEventModal extends JDialog {
     private static final int INNER_NUM_ROWS = 2;
     private static final int INNER_NUM_COLS = 1;
     private static final int PADDING = 10;
+    private static final int NO_PADDING = 0;
     private static final int ERROR_MESSAGE_HEIGHT = 25;
     private static final int MAX_MINUTES = 1440;
     private static final String DATE_REGEX = "^([0-9]?[0-9])(?:[-.\\/])([0-9]?[0-9])(?:[-.\\/])([0-9]{4})$";
@@ -124,6 +125,80 @@ public class AddEventModal extends JDialog {
         });
     }
 
+    // Inner class for creating customized JPanels for user input
+    private class LabeledInputPanel extends JPanel {
+
+        private JLabel label;
+
+        LabeledInputPanel(String label) {
+            // Set panel configurations
+            setBackground(Theme.DARK_BACKGROUND);
+            setLayout(new GridLayout(INNER_NUM_ROWS, INNER_NUM_COLS, PADDING, PADDING));
+            setBorder(BorderFactory.createEmptyBorder(PADDING, PADDING, PADDING, PADDING));
+
+            // Configure and add Label
+            this.label = new JLabel(label);
+            this.label.setForeground(Theme.TEXT_COLOR);
+            add(this.label);
+        }
+
+        public JLabel getLabel() {
+            return label;
+        }
+    }
+
+    // Inner class for creating customized JTextFields
+    private class CustomTextField extends JTextField {
+        CustomTextField() {
+            // Set text field configurations
+            setBackground(Theme.MID_BACKGROUND);
+            setForeground(Theme.TEXT_COLOR);
+            setCaretColor(Theme.TEXT_COLOR);
+            setBorder(BorderFactory.createEmptyBorder(NO_PADDING, PADDING, NO_PADDING, PADDING));
+        }
+
+        // Optional constructor for adding default text
+        CustomTextField(String text) {
+            this();
+            setText(text);
+        }
+    }
+
+    // Inner class for creating customized JComboBoxes
+    private class CustomComboBox<T> extends JComboBox<T> {
+
+        CustomComboBox(T[] param) {
+            setBackground(Theme.MID_BACKGROUND);
+            setForeground(Theme.TEXT_COLOR);
+            setModel(new DefaultComboBoxModel(param));
+            addActionListener(e -> {
+                if (getSelectedItem().equals("Meeting")) {
+                    durationPanel.getLabel().setForeground(Theme.TEXT_COLOR);
+                    durationInput.setFocusable(true);
+                    durationInput.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
+                    locationPanel.getLabel().setForeground(Theme.TEXT_COLOR);
+                    locationInput.setFocusable(true);
+                    locationInput.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
+                }
+                if (getSelectedItem().equals("Deadline")) {
+                    durationPanel.getLabel().setForeground(Theme.INACTIVE);
+                    durationInput.setFocusable(false);
+                    durationInput.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                    locationPanel.getLabel().setForeground(Theme.INACTIVE);
+                    locationInput.setFocusable(false);
+                    locationInput.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                }
+                repaint();
+                revalidate();
+            });
+        }
+    }
+
+    // Closes Dialog Window
+    private void closeModal() {
+        this.dispose();
+    }
+
     // Validates all input within dialog and adds event if validation succeeds
     private String validateInputAndAddEvent(Consumer<Event> addEvent) {
 
@@ -217,79 +292,5 @@ public class AddEventModal extends JDialog {
 
         // Default error message
         return "ERROR: Something unexpected happened!";
-    }
-
-    // Inner class for creating customized JPanels for user input
-    private class LabeledInputPanel extends JPanel {
-
-        private JLabel label;
-
-        LabeledInputPanel(String label) {
-            // Set panel configurations
-            setBackground(Theme.DARK_BACKGROUND);
-            setLayout(new GridLayout(INNER_NUM_ROWS, INNER_NUM_COLS, PADDING, PADDING));
-            setBorder(BorderFactory.createEmptyBorder(PADDING, PADDING, PADDING, PADDING));
-
-            // Configure and add Label
-            this.label = new JLabel(label);
-            this.label.setForeground(Theme.TEXT_COLOR);
-            add(this.label);
-        }
-
-        public JLabel getLabel() {
-            return label;
-        }
-    }
-
-    // Inner class for creating customized JTextFields
-    private class CustomTextField extends JTextField {
-        CustomTextField() {
-            // Set text field configurations
-            setBackground(Theme.MID_BACKGROUND);
-            setForeground(Theme.TEXT_COLOR);
-            setCaretColor(Theme.TEXT_COLOR);
-            setBorder(null);
-        }
-
-        // Optional constructor for adding default text
-        CustomTextField(String text) {
-            this();
-            setText(text);
-        }
-    }
-
-    // Inner class for creating customized JComboBoxes
-    private class CustomComboBox<T> extends JComboBox<T> {
-
-        CustomComboBox(T[] param) {
-            setBackground(Theme.MID_BACKGROUND);
-            setForeground(Theme.TEXT_COLOR);
-            setModel(new DefaultComboBoxModel(param));
-            addActionListener(e -> {
-                if (getSelectedItem().equals("Meeting")) {
-                    durationPanel.getLabel().setForeground(Theme.TEXT_COLOR);
-                    durationInput.setFocusable(true);
-                    durationInput.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
-                    locationPanel.getLabel().setForeground(Theme.TEXT_COLOR);
-                    locationInput.setFocusable(true);
-                    locationInput.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
-                }
-                if (getSelectedItem().equals("Deadline")) {
-                    durationPanel.getLabel().setForeground(Theme.INACTIVE);
-                    durationInput.setFocusable(false);
-                    durationInput.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-                    locationPanel.getLabel().setForeground(Theme.INACTIVE);
-                    locationInput.setFocusable(false);
-                    locationInput.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-                }
-                repaint();
-                revalidate();
-            });
-        }
-    }
-
-    // Closes Dialog Window
-    private void closeModal() {
-        this.dispose();
     }
 }
