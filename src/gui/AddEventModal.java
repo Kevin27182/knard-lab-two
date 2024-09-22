@@ -269,14 +269,18 @@ public class AddEventModal extends JDialog {
                 if (getSelectedItem().equals("Meeting")) {
                     durationPanel.getLabel().setForeground(Theme.TEXT_COLOR);
                     durationInput.setFocusable(true);
+                    durationInput.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
                     locationPanel.getLabel().setForeground(Theme.TEXT_COLOR);
                     locationInput.setFocusable(true);
+                    locationInput.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
                 }
                 if (getSelectedItem().equals("Deadline")) {
                     durationPanel.getLabel().setForeground(Theme.INACTIVE);
                     durationInput.setFocusable(false);
+                    durationInput.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                     locationPanel.getLabel().setForeground(Theme.INACTIVE);
                     locationInput.setFocusable(false);
+                    locationInput.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                 }
                 repaint();
                 revalidate();

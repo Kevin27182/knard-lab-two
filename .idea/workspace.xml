@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="Fixed an issue where a date was asking for am/pm">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/EventPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventPanel.java" afterDir="false" />
+    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="The duration for 1 minute long meetings is no longer plural">
+      <change beforePath="$PROJECT_DIR$/src/gui/AddEventModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AddEventModal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +119,7 @@
       <workItem from="1726878511365" duration="5853000" />
       <workItem from="1726929850134" duration="16371000" />
       <workItem from="1727018601679" duration="17542000" />
-      <workItem from="1727038403740" duration="161000" />
+      <workItem from="1727038403740" duration="437000" />
     </task>
     <task id="LOCAL-00001" summary="Added EventTester.java">
       <option name="closed" value="true" />
@@ -298,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727038210783</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="The duration for 1 minute long meetings is no longer plural">
+      <option name="closed" value="true" />
+      <created>1727038655612</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1727038655612</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,6 +345,7 @@
     <MESSAGE value="Added filter boxes" />
     <MESSAGE value="Added functionality to Add Event Button" />
     <MESSAGE value="Fixed an issue where a date was asking for am/pm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue where a date was asking for am/pm" />
+    <MESSAGE value="The duration for 1 minute long meetings is no longer plural" />
+    <option name="LAST_COMMIT_MESSAGE" value="The duration for 1 minute long meetings is no longer plural" />
   </component>
 </project>
