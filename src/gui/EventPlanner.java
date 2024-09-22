@@ -42,6 +42,7 @@ public class EventPlanner extends JPanel {
 
         // Pack and display the JFrame
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 

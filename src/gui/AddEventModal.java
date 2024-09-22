@@ -4,10 +4,7 @@ import base.*;
 import base.Event;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowFocusListener;
+import java.awt.event.*;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -94,6 +91,19 @@ public class AddEventModal extends JDialog {
         addEventPanel.add(inputValidationMessage, BorderLayout.NORTH);
 
         // Configure and add Create Event button
+        createEventButton.setBackground(Theme.MID_BACKGROUND);
+        createEventButton.setForeground(Theme.TEXT_COLOR);
+        createEventButton.setBorderPainted(false);
+        createEventButton.setFocusPainted(false);
+        createEventButton.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent e) {
+                createEventButton.setBackground(Theme.MID_BACKGROUND_HIGHLIGHT);
+            }
+
+            public void mouseExited(MouseEvent e) {
+                createEventButton.setBackground(Theme.MID_BACKGROUND);
+            }
+        });
         createEventButton.addActionListener(e -> {
             String validated = validateInputAndAddEvent(addEvent);
             if (validated.equals("Validated")) {

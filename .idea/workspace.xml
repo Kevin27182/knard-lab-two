@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="Added filtering functionality to filter boxes">
+    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="Added functionality to Add Event Button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/AddEventModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AddEventModal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/EventListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventListPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/EventPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventPlanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Theme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Theme.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +121,7 @@
       <updated>1726878510322</updated>
       <workItem from="1726878511365" duration="5853000" />
       <workItem from="1726929850134" duration="16371000" />
-      <workItem from="1727018601679" duration="16960000" />
+      <workItem from="1727018601679" duration="17542000" />
     </task>
     <task id="LOCAL-00001" summary="Added EventTester.java">
       <option name="closed" value="true" />
@@ -284,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726963850714</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Added functionality to Add Event Button">
+      <option name="closed" value="true" />
+      <created>1727036236358</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1727036236358</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,6 +329,7 @@
     <MESSAGE value="Changed EventPlanner.addDefaultEvents to accept an array of Events" />
     <MESSAGE value="Implemented sorting for EventListPanel" />
     <MESSAGE value="Added filter boxes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added filter boxes" />
+    <MESSAGE value="Added functionality to Add Event Button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionality to Add Event Button" />
   </component>
 </project>

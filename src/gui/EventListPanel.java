@@ -98,8 +98,8 @@ public class EventListPanel extends JPanel {
                 addEvent(event);
                 sortEvents();
             });
-            addEventModal.setLocationRelativeTo(this.getParent());
             addEventModal.pack();
+            addEventModal.setLocationRelativeTo(this.getParent());
             addEventModal.setVisible(true);
         });
         controlPanel.add(addEventButton);
