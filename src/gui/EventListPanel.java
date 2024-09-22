@@ -4,6 +4,7 @@ import base.Completable;
 import base.Event;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,7 +17,8 @@ public class EventListPanel extends JPanel {
     private JPanel displayPanel = new JPanel();
     private final String[] SORT_OPTIONS = new String[]{"Date Ascending", "Date Descending", "Name A-Z", "Name Z-A"};
     private JComboBox<String> sortDropDown = new JComboBox(SORT_OPTIONS);
-    private JCheckBox filterDisplay = new JCheckBox();
+    private final String[] FILTERS = new String[]{"Not Completed", "Completed", "Deadlines", "Meetings"};
+    private ArrayList<JCheckBox> filterBoxes = new ArrayList<JCheckBox>();
     private JButton addEventButton = new JButton("Add Event");
 
     public EventListPanel() {
@@ -25,7 +27,23 @@ public class EventListPanel extends JPanel {
 
         // Configure and add calendar Control Panel
         controlPanel.add(sortDropDown);
-        controlPanel.add(filterDisplay);
+        for (String filter : FILTERS) {
+            JCheckBox checkBox = new JCheckBox(filter);
+            checkBox.setForeground(Theme.TEXT_COLOR);
+            checkBox.setOpaque(false);
+            checkBox.setFocusPainted(false);
+            checkBox.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    for (JCheckBox box : filterBoxes) {
+                        if (box.isSelected() && !box.getText().equals(checkBox.getText())) {
+                            box.setSelected(false);
+                        }
+                    }
+                }
+            });
+            filterBoxes.add(checkBox);
+            controlPanel.add(checkBox);
+        }
         controlPanel.setBackground(Theme.DARK_BACKGROUND);
         this.add(controlPanel, BorderLayout.NORTH);
 

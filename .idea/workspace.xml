@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="Changed EventPlanner.addDefaultEvents to accept an array of Events">
+    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="Implemented sorting for EventListPanel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/EventListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventListPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/EventPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +54,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.EventPlanner.executor": "Debug",
+    "Application.EventPlanner.executor": "Run",
     "Application.EventTester.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -265,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726955836166</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Implemented sorting for EventListPanel">
+      <option name="closed" value="true" />
+      <created>1726961552639</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1726961552639</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,6 +308,7 @@
     <MESSAGE value="Events now darken on completion" />
     <MESSAGE value="Added Timer to update event urgency" />
     <MESSAGE value="Changed EventPlanner.addDefaultEvents to accept an array of Events" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed EventPlanner.addDefaultEvents to accept an array of Events" />
+    <MESSAGE value="Implemented sorting for EventListPanel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented sorting for EventListPanel" />
   </component>
 </project>

@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Theme {
     public static final int PREFERRED_WIDTH = 1000;
-    public static final int PREFERRED_HEIGHT = 1000;
+    public static final int PREFERRED_HEIGHT = 700;
     public static final Color DARKER_BACKGROUND = new Color(0x1E1E1E);
     public static final Color DARK_BACKGROUND = new Color(0x323232);
     public static final Color MID_BACKGROUND = new Color(0x464646);
