@@ -33,9 +33,9 @@ public class AddEventModal extends JDialog {
     private CustomComboBox<String> typeDropDown = new CustomComboBox(EVENT_TYPES);
     private LabeledInputPanel eventNamePanel = new LabeledInputPanel("Event Name");
     private CustomTextField eventNameInput = new CustomTextField();
-    private LabeledInputPanel startDatePanel = new LabeledInputPanel("Start Date (MM-DD-YYYY AM/PM)");
+    private LabeledInputPanel startDatePanel = new LabeledInputPanel("Start Date (MM-DD-YYYY)");
     private CustomTextField startDateInput = new CustomTextField();
-    private LabeledInputPanel startTimePanel = new LabeledInputPanel("Start Time (HH:MM)");
+    private LabeledInputPanel startTimePanel = new LabeledInputPanel("Start Time (HH:MM AM/PM)");
     private CustomTextField startTimeInput = new CustomTextField();
     private LabeledInputPanel durationPanel = new LabeledInputPanel("Duration (minutes)");
     private CustomTextField durationInput = new CustomTextField();
