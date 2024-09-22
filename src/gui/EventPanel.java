@@ -70,7 +70,9 @@ public class EventPanel extends JPanel {
         if (this.event instanceof DurationEvent durationEvent && this.event instanceof Event baseEvent) {
             int minutesBetween = (int) MINUTES.between(baseEvent.getDateTime(), durationEvent.getEndDateTime());
             int hoursBetween = (int) HOURS.between(baseEvent.getDateTime(), durationEvent.getEndDateTime());
-            if (minutesBetween < 60)
+            if (minutesBetween == 1)
+                durationLabel.setText(minutesBetween + " minute");
+            else if (minutesBetween < 60)
                 durationLabel.setText(minutesBetween + " minutes");
             else if (hoursBetween == 1)
                 durationLabel.setText(hoursBetween + " hour");
