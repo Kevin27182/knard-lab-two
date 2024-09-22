@@ -45,6 +45,7 @@ public class EventPlanner extends JPanel {
         frame.setVisible(true);
     }
 
+    // Adds default events to Event List Panel
     public static void addDefaultEvents(Event[] events) {
         for (Event event : events) {
             eventListPanel.addEvent(event);

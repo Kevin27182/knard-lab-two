@@ -16,7 +16,9 @@ public class EventListPanel extends JPanel {
     private JComboBox<String> sortDropDown = new JComboBox(SORT_OPTIONS);
     private final String[] FILTERS = new String[]{"Not Completed", "Completed", "Deadlines", "Meetings"};
     private ArrayList<JCheckBox> filterBoxes = new ArrayList<JCheckBox>();
+    private JButton clearFiltersButton = new JButton("Clear Filters");
     private JButton addEventButton = new JButton("Add Event");
+    private AddEventModal addEventModal;
 
     public EventListPanel() {
         this.setBackground(Theme.DARKER_BACKGROUND);
@@ -39,12 +41,34 @@ public class EventListPanel extends JPanel {
                             box.setSelected(false);
                         }
                     }
-                    drawEvents();
+                    sortEvents();
                 }
             });
             filterBoxes.add(checkBox);
             controlPanel.add(checkBox);
         }
+
+        // Configure and add clear filters button to Control Panel
+        clearFiltersButton.setBackground(Theme.MID_BACKGROUND);
+        clearFiltersButton.setForeground(Theme.TEXT_COLOR);
+        clearFiltersButton.setBorderPainted(false);
+        clearFiltersButton.setFocusPainted(false);
+        clearFiltersButton.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent e) {
+                clearFiltersButton.setBackground(Theme.MID_BACKGROUND_HIGHLIGHT);
+            }
+
+            public void mouseExited(MouseEvent e) {
+                clearFiltersButton.setBackground(Theme.MID_BACKGROUND);
+            }
+        });
+        clearFiltersButton.addActionListener(e -> {
+            for (JCheckBox box : filterBoxes) {
+                box.setSelected(false);
+            }
+            sortEvents();
+        });
+        controlPanel.add(clearFiltersButton);
 
 
         // Configure and add sort event dropdown to Control Panel
@@ -52,16 +76,7 @@ public class EventListPanel extends JPanel {
         sortDropDown.setBackground(Theme.MID_BACKGROUND);
         sortDropDown.setForeground(Theme.TEXT_COLOR);
         sortDropDown.addActionListener(e -> {
-            if (sortDropDown.getSelectedItem().equals(SORT_OPTIONS[0]))
-                Collections.sort(events);
-            if (sortDropDown.getSelectedItem().equals(SORT_OPTIONS[1]))
-                events.sort(Collections.reverseOrder());
-            if (sortDropDown.getSelectedItem().equals(SORT_OPTIONS[2]))
-                events.sort((e1, e2) -> e1.getName().compareTo(e2.getName()));
-            if (sortDropDown.getSelectedItem().equals(SORT_OPTIONS[3]))
-                events.sort((e1, e2) -> e2.getName().compareTo(e1.getName()));
-            displayPanel.removeAll();
-            drawEvents();
+            sortEvents();
         });
 
         // Configure and add new event button to Control Panel
@@ -77,6 +92,15 @@ public class EventListPanel extends JPanel {
             public void mouseExited(MouseEvent e) {
                 addEventButton.setBackground(Theme.MID_BACKGROUND);
             }
+        });
+        addEventButton.addActionListener(e -> {
+            addEventModal = new AddEventModal(event -> {
+                addEvent(event);
+                sortEvents();
+            });
+            addEventModal.setLocationRelativeTo(this.getParent());
+            addEventModal.pack();
+            addEventModal.setVisible(true);
         });
         controlPanel.add(addEventButton);
 
@@ -161,5 +185,18 @@ public class EventListPanel extends JPanel {
         }
 
         return filteredList;
+    }
+
+    private void sortEvents() {
+        if (sortDropDown.getSelectedItem().equals(SORT_OPTIONS[0]))
+            Collections.sort(events);
+        if (sortDropDown.getSelectedItem().equals(SORT_OPTIONS[1]))
+            events.sort(Collections.reverseOrder());
+        if (sortDropDown.getSelectedItem().equals(SORT_OPTIONS[2]))
+            events.sort((e1, e2) -> e1.getName().compareTo(e2.getName()));
+        if (sortDropDown.getSelectedItem().equals(SORT_OPTIONS[3]))
+            events.sort((e1, e2) -> e2.getName().compareTo(e1.getName()));
+        displayPanel.removeAll();
+        drawEvents();
     }
 }
