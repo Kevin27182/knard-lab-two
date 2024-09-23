@@ -1,3 +1,8 @@
+
+// Title: EventTester.java
+// Author: Jon Baarsch
+// Tests the objects and methods available in the `base` package
+
 package base;
 
 import java.time.Duration;
