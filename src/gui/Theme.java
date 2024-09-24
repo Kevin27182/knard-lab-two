@@ -1,3 +1,8 @@
+
+// Title: Theme.java
+// Author: Kevin Nard
+// Contains constant variables that define UI aesthetics
+
 package gui;
 
 import java.awt.*;

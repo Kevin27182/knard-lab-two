@@ -1,3 +1,8 @@
+
+// Title: EventPlanner.java
+// Author: Kevin Nard
+// Creates the main GUI window for the event planner
+
 package gui;
 
 import base.*;
@@ -18,13 +23,16 @@ public class EventPlanner extends JPanel {
     private static final JFrame frame = new JFrame("Event Planner");
     private static final EventListPanel eventListPanel = new EventListPanel();
 
+    // Configure and display the main graphics window
     public static void main(String[] args) {
+
         // Configure JFrame object
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(Theme.PREFERRED_WIDTH, Theme.PREFERRED_HEIGHT));
 
         // Add default events
         if (USE_DEFAULTS) {
+
             // Create default events
             Deadline laborDay = new Deadline("Labor Day", LABOR_DAY_START_DATE);
             Deadline imminentDeadline = new Deadline("Imminent Deadline", IMMINENT_DEADLINE_START_DATE);

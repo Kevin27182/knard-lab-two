@@ -1,3 +1,8 @@
+
+// Title: AddEventModal.java
+// Author: Kevin Nard
+// Creates a dialog window for adding new events
+
 package gui;
 
 import base.*;
@@ -43,6 +48,7 @@ public class AddEventModal extends JDialog {
     private LabeledInputPanel locationPanel = new LabeledInputPanel("Location");
     private CustomTextField locationInput = new CustomTextField();
 
+    // Configure and display the Add Event dialog
     AddEventModal(Consumer<Event> addEvent) {
 
         // Configure Dialog Window options
@@ -96,6 +102,9 @@ public class AddEventModal extends JDialog {
         createEventButton.setForeground(Theme.TEXT_COLOR);
         createEventButton.setBorderPainted(false);
         createEventButton.setFocusPainted(false);
+        addEventPanel.add(createEventButton, BorderLayout.SOUTH);
+
+        // Highlight button on mouse hover
         createEventButton.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {
                 createEventButton.setBackground(Theme.MID_BACKGROUND_HIGHLIGHT);
@@ -105,6 +114,8 @@ public class AddEventModal extends JDialog {
                 createEventButton.setBackground(Theme.MID_BACKGROUND);
             }
         });
+
+        // Validate input and add event if validated
         createEventButton.addActionListener(e -> {
             String validated = validateInputAndAddEvent(addEvent);
             if (validated.equals("Validated")) {
@@ -113,10 +124,11 @@ public class AddEventModal extends JDialog {
             } else {
                 inputValidationMessage.setText(validated);
             }
+
+            // Update graphics
             repaint();
             revalidate();
         });
-        addEventPanel.add(createEventButton, BorderLayout.SOUTH);
 
         // Closes modal on lost focus
         this.addWindowFocusListener(new WindowFocusListener() {
@@ -167,10 +179,15 @@ public class AddEventModal extends JDialog {
     // Inner class for creating customized JComboBoxes
     private class CustomComboBox<T> extends JComboBox<T> {
 
+        // Construct a new combo box from array parameter
         CustomComboBox(T[] param) {
+
+            // Set UI configuration
             setBackground(Theme.MID_BACKGROUND);
             setForeground(Theme.TEXT_COLOR);
             setModel(new DefaultComboBoxModel(param));
+
+            // Dynamically activate or deactivate duration and location text fields
             addActionListener(e -> {
                 if (getSelectedItem().equals("Meeting")) {
                     durationPanel.getLabel().setForeground(Theme.TEXT_COLOR);
@@ -188,6 +205,8 @@ public class AddEventModal extends JDialog {
                     locationInput.setFocusable(false);
                     locationInput.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                 }
+
+                // Update graphics
                 repaint();
                 revalidate();
             });
@@ -248,6 +267,7 @@ public class AddEventModal extends JDialog {
         if (startDate.equals(LocalDate.now()) && startTime.isBefore(LocalTime.now()))
             return "ERROR: Start Time must be in the future!";
 
+        // Add a Meeting
         if (typeDropDown.getSelectedItem().equals("Meeting")) {
 
             // Validate Duration Input
@@ -278,6 +298,7 @@ public class AddEventModal extends JDialog {
             return "Validated";
         }
 
+        // Add a Deadline
         if (typeDropDown.getSelectedItem().equals("Deadline")) {
 
             // Prepare arguments

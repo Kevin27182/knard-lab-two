@@ -1,3 +1,8 @@
+
+// Title: EventPanel.java
+// Author: Kevin Nard
+// Panel that holds event graphics
+
 package gui;
 
 import base.*;
@@ -12,6 +17,7 @@ import java.time.format.FormatStyle;
 import static java.time.temporal.ChronoUnit.*;
 
 public class EventPanel extends JPanel {
+
     private Event event;
     private JLabel eventLabel = new JLabel();
     private JLabel dateLabel = new JLabel();
@@ -20,7 +26,6 @@ public class EventPanel extends JPanel {
     private JButton completeButton = new JButton("Complete");
     private JPanel urgencyPanel = new JPanel();
     private Color textColor = Theme.TEXT_COLOR;
-
     private static final int URGENCY_WIDTH = 5;
     private static final int URGENCY_HEIGHT = 30;
     private static final int DATE_TIME_WIDTH = 125;
@@ -35,8 +40,10 @@ public class EventPanel extends JPanel {
     private static final int VERTICAL_PADDING = 10;
     private static final int DISTANT_HOURS = 4;
 
+    // Construct a new event panel around given event
     EventPanel(Event event, Runnable updateEventList) {
 
+        // Set the event for this panel
         this.event = event;
 
         // Detect if event is complete
@@ -128,7 +135,9 @@ public class EventPanel extends JPanel {
         this.add(completeButton);
     }
 
+    // Updates urgency graphic color
     public void updateUrgency() {
+
         // Get number of minutes and days between now and event
         boolean distant = HOURS.between(LocalDateTime.now(), event.getDateTime()) > DISTANT_HOURS;
         boolean overdue = LocalDateTime.now().isAfter(event.getDateTime());
@@ -149,10 +158,12 @@ public class EventPanel extends JPanel {
         urgencyPanel.setBackground(Theme.IMMINENT);
     }
 
+    // Return the current event
     public Event getEvent() {
         return event;
     }
 
+    // Return the current completion button
     public JButton getCompleteButton() {
         return completeButton;
     }

@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="Disabled complete button upon completion">
+    <list default="true" id="4e0cc9b7-e204-4b35-be6e-ceeb3b911061" name="Changes" comment="Cleaned up and documented classes in the base package">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Completable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Completable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Deadline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Deadline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/DurationEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/DurationEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/EventTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/EventTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/LocationEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/LocationEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Meeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Meeting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/AddEventModal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/AddEventModal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/EventListPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventListPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/EventPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/EventPlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/EventPlanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Theme.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Theme.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +125,7 @@
       <workItem from="1726929850134" duration="16371000" />
       <workItem from="1727018601679" duration="17542000" />
       <workItem from="1727038403740" duration="437000" />
-      <workItem from="1727120314050" duration="1169000" />
+      <workItem from="1727120314050" duration="5464000" />
     </task>
     <task id="LOCAL-00001" summary="Added EventTester.java">
       <option name="closed" value="true" />
@@ -321,7 +319,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727040471825</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Cleaned up and documented classes in the base package">
+      <option name="closed" value="true" />
+      <created>1727121542586</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1727121542586</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,6 +369,7 @@
     <MESSAGE value="Fixed an issue where a date was asking for am/pm" />
     <MESSAGE value="The duration for 1 minute long meetings is no longer plural" />
     <MESSAGE value="Disabled complete button upon completion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Disabled complete button upon completion" />
+    <MESSAGE value="Cleaned up and documented classes in the base package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up and documented classes in the base package" />
   </component>
 </project>

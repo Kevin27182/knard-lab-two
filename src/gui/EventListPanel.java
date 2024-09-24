@@ -1,3 +1,8 @@
+
+// Title: EventListPanel.java
+// Author: Kevin Nard
+// Panel that holds event list and control panels
+
 package gui;
 
 import base.Event;
@@ -9,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class EventListPanel extends JPanel {
+
     private ArrayList<Event> events = new ArrayList<Event>();
     private JPanel controlPanel = new JPanel();
     private JPanel displayPanel = new JPanel();
@@ -20,7 +26,10 @@ public class EventListPanel extends JPanel {
     private JButton addEventButton = new JButton("Add Event");
     private AddEventModal addEventModal;
 
+    // Construct list panel and add/configure components
     public EventListPanel() {
+
+        // Configure list panel
         this.setBackground(Theme.DARKER_BACKGROUND);
         this.setLayout(new BorderLayout());
 
@@ -30,10 +39,14 @@ public class EventListPanel extends JPanel {
 
         // Configure and add filter check boxes to Control Panel
         for (String filter : FILTERS) {
+
+            // Configure check box
             JCheckBox checkBox = new JCheckBox(filter);
             checkBox.setForeground(Theme.TEXT_COLOR);
             checkBox.setOpaque(false);
             checkBox.setFocusPainted(false);
+
+            // Uncheck other boxes when selected
             checkBox.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     for (JCheckBox box : filterBoxes) {
@@ -44,6 +57,7 @@ public class EventListPanel extends JPanel {
                     sortEvents();
                 }
             });
+
             filterBoxes.add(checkBox);
             controlPanel.add(checkBox);
         }
@@ -53,6 +67,8 @@ public class EventListPanel extends JPanel {
         clearFiltersButton.setForeground(Theme.TEXT_COLOR);
         clearFiltersButton.setBorderPainted(false);
         clearFiltersButton.setFocusPainted(false);
+
+        // Highlight button on mouse hover
         clearFiltersButton.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {
                 clearFiltersButton.setBackground(Theme.MID_BACKGROUND_HIGHLIGHT);
@@ -62,14 +78,16 @@ public class EventListPanel extends JPanel {
                 clearFiltersButton.setBackground(Theme.MID_BACKGROUND);
             }
         });
+
+        // Clear all filter boxes on button click
         clearFiltersButton.addActionListener(e -> {
             for (JCheckBox box : filterBoxes) {
                 box.setSelected(false);
             }
             sortEvents();
         });
-        controlPanel.add(clearFiltersButton);
 
+        controlPanel.add(clearFiltersButton);
 
         // Configure and add sort event dropdown to Control Panel
         controlPanel.add(sortDropDown);
@@ -84,6 +102,9 @@ public class EventListPanel extends JPanel {
         addEventButton.setForeground(Theme.TEXT_COLOR);
         addEventButton.setBorderPainted(false);
         addEventButton.setFocusPainted(false);
+        controlPanel.add(addEventButton);
+
+        // Highlight button on mouse hover
         addEventButton.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {
                 addEventButton.setBackground(Theme.MID_BACKGROUND_HIGHLIGHT);
@@ -93,6 +114,8 @@ public class EventListPanel extends JPanel {
                 addEventButton.setBackground(Theme.MID_BACKGROUND);
             }
         });
+
+        // Create dialog on button click
         addEventButton.addActionListener(e -> {
             addEventModal = new AddEventModal(event -> {
                 addEvent(event);
@@ -102,7 +125,6 @@ public class EventListPanel extends JPanel {
             addEventModal.setLocationRelativeTo(this.getParent());
             addEventModal.setVisible(true);
         });
-        controlPanel.add(addEventButton);
 
         // Configure and add event Display Panel
         displayPanel.setBackground(Theme.TRANSPARENT);
@@ -121,10 +143,12 @@ public class EventListPanel extends JPanel {
         timer.start();
     }
 
+    // Add a new event
     public void addEvent(Event event) {
         this.events.add(event);
     }
 
+    // Filter and re-draw events list
     public void drawEvents() {
 
         // Stores the active filter checkbox
@@ -144,20 +168,30 @@ public class EventListPanel extends JPanel {
         else
             filteredEvents = events;
 
+        // Remove all current events
         displayPanel.removeAll();
+
+        // Construct new EventPanels and add to display panel
         for (Event event : filteredEvents) {
             EventPanel eventPanel = new EventPanel(event, () -> {
                 drawEvents();
             });
             displayPanel.add(eventPanel);
         }
+
+        // Update graphics
         repaint();
         revalidate();
     }
 
+    // Return filtered events
     private ArrayList<Event> filterEvents(String filter) {
+
         ArrayList<Event> filteredList = new ArrayList<>(events);
+
         switch (filter) {
+
+            // Filter to events that are not completed
             case "Not Completed":
                 filteredList.removeIf(e -> {
                     if (e instanceof Completable completableEvent)
@@ -165,6 +199,8 @@ public class EventListPanel extends JPanel {
                     return false;
                 });
                 break;
+
+            // Filter to events that are completed
             case "Completed":
                 filteredList.removeIf(e -> {
                     if (e instanceof Completable completableEvent)
@@ -172,11 +208,15 @@ public class EventListPanel extends JPanel {
                     return false;
                 });
                 break;
+
+            // Filter to Deadlines
             case "Deadlines":
                 filteredList.removeIf(e -> {
                     return !(e instanceof Deadline);
                 });
                 break;
+
+            // Filter to Meetings
             case "Meetings":
                 filteredList.removeIf(e -> {
                     return !(e instanceof Meeting);
@@ -187,6 +227,7 @@ public class EventListPanel extends JPanel {
         return filteredList;
     }
 
+    // Sort events and draw graphics
     private void sortEvents() {
         if (sortDropDown.getSelectedItem().equals(SORT_OPTIONS[0]))
             Collections.sort(events);
@@ -196,7 +237,6 @@ public class EventListPanel extends JPanel {
             events.sort((e1, e2) -> e1.getName().compareTo(e2.getName()));
         if (sortDropDown.getSelectedItem().equals(SORT_OPTIONS[3]))
             events.sort((e1, e2) -> e2.getName().compareTo(e1.getName()));
-        displayPanel.removeAll();
         drawEvents();
     }
 }
